@@ -1,0 +1,89 @@
+﻿@model RiceMill5911.Models.BookingForm
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BookingForm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingWant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingWant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingSubmit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingSubmit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDeliveryFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingDeliveryFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerUsre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerUsre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusBookingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusBookingID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

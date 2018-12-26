@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RiceMill5911Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BookingDescription">
+    <Key>
+      <PropertyRef Name="DesBookingID" />
+    </Key>
+    <Property Name="DesBookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingID" Type="Int32" Nullable="false" />
+    <Property Name="BookRice" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RiceQuantity" Type="Double" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="TotalPrice" Type="Double" />
+    <Property Name="PaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DesPrice" Type="Double" />
+    <NavigationProperty Name="BookingForm" Relationship="Self.FK_BookingDescription_BookingForm" FromRole="BookingDescription" ToRole="BookingForm" />
+    <NavigationProperty Name="Rice" Relationship="Self.FK_BookingDescription_Rice1" FromRole="BookingDescription" ToRole="Rice" />
+  </EntityType>
+  <EntityType Name="BookingForm">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BookingWant" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BookingSubmit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BookingDeliveryFee" Type="Double" />
+    <Property Name="EmployeeID" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerUsre" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="StatusBookingID" Type="Int32" />
+    <NavigationProperty Name="BookingDescription" Relationship="Self.FK_BookingDescription_BookingForm" FromRole="BookingForm" ToRole="BookingDescription" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_BookingForm_Customer" FromRole="BookingForm" ToRole="Customer" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_BookingForm_Employee" FromRole="BookingForm" ToRole="Employee" />
+    <NavigationProperty Name="StatusBooking" Relationship="Self.FK_BookingForm_StatusBooking" FromRole="BookingForm" ToRole="StatusBooking" />
+  </EntityType>
+  <EntityType Name="BuyDescription">
+    <Key>
+      <PropertyRef Name="DesBuyID" />
+    </Key>
+    <Property Name="DesBuyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuyID" Type="Int32" Nullable="false" />
+    <Property Name="BuyRice" Type="Int32" />
+    <Property Name="BuyAmount" Type="Double" />
+    <Property Name="BuyPrice" Type="Double" />
+    <Property Name="BuyTotal" Type="Double" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="StatusRiceID" Type="Int32" />
+    <NavigationProperty Name="BuyForm" Relationship="Self.FK_BuyDescription_BuyForm" FromRole="BuyDescription" ToRole="BuyForm" />
+    <NavigationProperty Name="Condition" Relationship="Self.FK_BuyDescription_Condition" FromRole="BuyDescription" ToRole="Condition" />
+    <NavigationProperty Name="Rice" Relationship="Self.FK_BuyDescription_Rice1" FromRole="BuyDescription" ToRole="Rice" />
+    <NavigationProperty Name="StatusRice" Relationship="Self.FK_BuyDescription_StatusRice" FromRole="BuyDescription" ToRole="StatusRice" />
+  </EntityType>
+  <EntityType Name="BuyForm">
+    <Key>
+      <PropertyRef Name="BuyID" />
+    </Key>
+    <Property Name="BuyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DealerID" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="BuyDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BuyDescription" Relationship="Self.FK_BuyDescription_BuyForm" FromRole="BuyForm" ToRole="BuyDescription" />
+    <NavigationProperty Name="Dealer" Relationship="Self.FK_BuyForm_Dealer" FromRole="BuyForm" ToRole="Dealer" />
+  </EntityType>
+  <EntityType Name="Condition">
+    <Key>
+      <PropertyRef Name="ConditionID" />
+    </Key>
+    <Property Name="ConditionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConditionName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BuyDescription" Relationship="Self.FK_BuyDescription_Condition" FromRole="Condition" ToRole="BuyDescription" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerUsre" />
+    </Key>
+    <Property Name="CustomerUsre" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerPass" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustTelephone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BookingForm" Relationship="Self.FK_BookingForm_Customer" FromRole="Customer" ToRole="BookingForm" />
+  </EntityType>
+  <EntityType Name="Dealer">
+    <Key>
+      <PropertyRef Name="DealerID" />
+    </Key>
+    <Property Name="DealerID" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DealerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeTelephone1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BuyForm" Relationship="Self.FK_BuyForm_Dealer" FromRole="Dealer" ToRole="BuyForm" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeTelephone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="BookingForm" Relationship="Self.FK_BookingForm_Employee" FromRole="Employee" ToRole="BookingForm" />
+  </EntityType>
+  <EntityType Name="Rice">
+    <Key>
+      <PropertyRef Name="RiceID" />
+    </Key>
+    <Property Name="RiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RiceName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TypeRiceID" Type="Int32" />
+    <Property Name="PurchasePrice" Type="Double" />
+    <Property Name="SalePrice" Type="Double" />
+    <Property Name="WareHouse" Type="Double" />
+    <Property Name="RicePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="BookingDescription" Relationship="Self.FK_BookingDescription_Rice1" FromRole="Rice" ToRole="BookingDescription" />
+    <NavigationProperty Name="BuyDescription" Relationship="Self.FK_BuyDescription_Rice1" FromRole="Rice" ToRole="BuyDescription" />
+    <NavigationProperty Name="TypeRice" Relationship="Self.FK_Rice_TypeRice1" FromRole="Rice" ToRole="TypeRice" />
+  </EntityType>
+  <EntityType Name="StatusBooking">
+    <Key>
+      <PropertyRef Name="StatusBookingID" />
+    </Key>
+    <Property Name="StatusBookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusBookingName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BookingForm" Relationship="Self.FK_BookingForm_StatusBooking" FromRole="StatusBooking" ToRole="BookingForm" />
+  </EntityType>
+  <EntityType Name="StatusRice">
+    <Key>
+      <PropertyRef Name="StatusRiceID" />
+    </Key>
+    <Property Name="StatusRiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusRiceName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BuyDescription" Relationship="Self.FK_BuyDescription_StatusRice" FromRole="StatusRice" ToRole="BuyDescription" />
+  </EntityType>
+  <EntityType Name="TypeRice">
+    <Key>
+      <PropertyRef Name="TypeRiceID" />
+    </Key>
+    <Property Name="TypeRiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeRiceName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Rice" Relationship="Self.FK_Rice_TypeRice1" FromRole="TypeRice" ToRole="Rice" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="UsernameID" />
+    </Key>
+    <Property Name="UsernameID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_BookingDescription_BookingForm">
+    <End Role="BookingForm" Type="Self.BookingForm" Multiplicity="1" />
+    <End Role="BookingDescription" Type="Self.BookingDescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookingForm">
+        <PropertyRef Name="BookingID" />
+      </Principal>
+      <Dependent Role="BookingDescription">
+        <PropertyRef Name="BookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingDescription_Rice1">
+    <End Role="Rice" Type="Self.Rice" Multiplicity="0..1" />
+    <End Role="BookingDescription" Type="Self.BookingDescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rice">
+        <PropertyRef Name="RiceID" />
+      </Principal>
+      <Dependent Role="BookingDescription">
+        <PropertyRef Name="BookRice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingForm_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="BookingForm" Type="Self.BookingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerUsre" />
+      </Principal>
+      <Dependent Role="BookingForm">
+        <PropertyRef Name="CustomerUsre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingForm_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="BookingForm" Type="Self.BookingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="BookingForm">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingForm_StatusBooking">
+    <End Role="StatusBooking" Type="Self.StatusBooking" Multiplicity="0..1" />
+    <End Role="BookingForm" Type="Self.BookingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusBooking">
+        <PropertyRef Name="StatusBookingID" />
+      </Principal>
+      <Dependent Role="BookingForm">
+        <PropertyRef Name="StatusBookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuyDescription_BuyForm">
+    <End Role="BuyForm" Type="Self.BuyForm" Multiplicity="1" />
+    <End Role="BuyDescription" Type="Self.BuyDescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuyForm">
+        <PropertyRef Name="BuyID" />
+      </Principal>
+      <Dependent Role="BuyDescription">
+        <PropertyRef Name="BuyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuyDescription_Condition">
+    <End Role="Condition" Type="Self.Condition" Multiplicity="0..1" />
+    <End Role="BuyDescription" Type="Self.BuyDescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="BuyDescription">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuyDescription_Rice1">
+    <End Role="Rice" Type="Self.Rice" Multiplicity="0..1" />
+    <End Role="BuyDescription" Type="Self.BuyDescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rice">
+        <PropertyRef Name="RiceID" />
+      </Principal>
+      <Dependent Role="BuyDescription">
+        <PropertyRef Name="BuyRice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuyDescription_StatusRice">
+    <End Role="StatusRice" Type="Self.StatusRice" Multiplicity="0..1" />
+    <End Role="BuyDescription" Type="Self.BuyDescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusRice">
+        <PropertyRef Name="StatusRiceID" />
+      </Principal>
+      <Dependent Role="BuyDescription">
+        <PropertyRef Name="StatusRiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuyForm_Dealer">
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
+    <End Role="BuyForm" Type="Self.BuyForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dealer">
+        <PropertyRef Name="DealerID" />
+      </Principal>
+      <Dependent Role="BuyForm">
+        <PropertyRef Name="DealerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rice_TypeRice1">
+    <End Role="TypeRice" Type="Self.TypeRice" Multiplicity="0..1" />
+    <End Role="Rice" Type="Self.Rice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeRice">
+        <PropertyRef Name="TypeRiceID" />
+      </Principal>
+      <Dependent Role="Rice">
+        <PropertyRef Name="TypeRiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RiceMill5911Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BookingDescription" EntityType="Self.BookingDescription" />
+    <EntitySet Name="BookingForm" EntityType="Self.BookingForm" />
+    <EntitySet Name="BuyDescription" EntityType="Self.BuyDescription" />
+    <EntitySet Name="BuyForm" EntityType="Self.BuyForm" />
+    <EntitySet Name="Condition" EntityType="Self.Condition" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" />
+    <EntitySet Name="Dealer" EntityType="Self.Dealer" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="Rice" EntityType="Self.Rice" />
+    <EntitySet Name="StatusBooking" EntityType="Self.StatusBooking" />
+    <EntitySet Name="StatusRice" EntityType="Self.StatusRice" />
+    <EntitySet Name="TypeRice" EntityType="Self.TypeRice" />
+    <EntitySet Name="UserLogin" EntityType="Self.UserLogin" />
+    <AssociationSet Name="FK_BookingDescription_BookingForm" Association="Self.FK_BookingDescription_BookingForm">
+      <End Role="BookingForm" EntitySet="BookingForm" />
+      <End Role="BookingDescription" EntitySet="BookingDescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingDescription_Rice1" Association="Self.FK_BookingDescription_Rice1">
+      <End Role="Rice" EntitySet="Rice" />
+      <End Role="BookingDescription" EntitySet="BookingDescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingForm_Customer" Association="Self.FK_BookingForm_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="BookingForm" EntitySet="BookingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingForm_Employee" Association="Self.FK_BookingForm_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="BookingForm" EntitySet="BookingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingForm_StatusBooking" Association="Self.FK_BookingForm_StatusBooking">
+      <End Role="StatusBooking" EntitySet="StatusBooking" />
+      <End Role="BookingForm" EntitySet="BookingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuyDescription_BuyForm" Association="Self.FK_BuyDescription_BuyForm">
+      <End Role="BuyForm" EntitySet="BuyForm" />
+      <End Role="BuyDescription" EntitySet="BuyDescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuyDescription_Condition" Association="Self.FK_BuyDescription_Condition">
+      <End Role="Condition" EntitySet="Condition" />
+      <End Role="BuyDescription" EntitySet="BuyDescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuyDescription_Rice1" Association="Self.FK_BuyDescription_Rice1">
+      <End Role="Rice" EntitySet="Rice" />
+      <End Role="BuyDescription" EntitySet="BuyDescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuyDescription_StatusRice" Association="Self.FK_BuyDescription_StatusRice">
+      <End Role="StatusRice" EntitySet="StatusRice" />
+      <End Role="BuyDescription" EntitySet="BuyDescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuyForm_Dealer" Association="Self.FK_BuyForm_Dealer">
+      <End Role="Dealer" EntitySet="Dealer" />
+      <End Role="BuyForm" EntitySet="BuyForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rice_TypeRice1" Association="Self.FK_Rice_TypeRice1">
+      <End Role="TypeRice" EntitySet="TypeRice" />
+      <End Role="Rice" EntitySet="Rice" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

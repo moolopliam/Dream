@@ -1,0 +1,27 @@
+﻿@model RiceMill5911.Models.StatusRice
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StatusRice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusRiceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusRiceName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StatusRiceID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

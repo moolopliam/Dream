@@ -1,0 +1,96 @@
+﻿@model IEnumerable<RiceMill5911.Models.BookingForm>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ใบการจอง</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มข้อมูลการจอง", "Create",null ,new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.MyDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MyDate1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MyDate2)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.BookingID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingWant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingSubmit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingDeliveryFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.CustomerName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.StatusBooking.StatusBookingName)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.MyDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MyDate1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MyDate2)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingWant)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingSubmit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingDeliveryFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.StatusBooking.StatusBookingName)
+        </td>*@
+        <td>
+            
+            @Html.ActionLink("แก้ไข", "Edit", new { id = item.BookingID }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("รายละเอียด", "Details", new { id = item.BookingID }, new { @class = "btn btn-success" })
+            @Html.ActionLink("ลบ", "Delete", new { id = item.BookingID },
+             new { onclick = "return confirm('คุณต้องการลบจิงป่าว ?')", @class = "btn btn-danger" } )
+        </td>
+    </tr>
+}
+
+</table>

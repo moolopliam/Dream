@@ -1,0 +1,52 @@
+﻿@model IEnumerable<RiceMill5911.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>รายชื่อลูกค้า</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มข้อมูลลูกค้า", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerUsre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerPass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustTelephone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerUsre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerPass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustTelephone)
+        </td>
+        <td>
+            @Html.ActionLink("แก้ไข", "Edit", new { id = item.CustomerUsre }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("รายละเอียด", "Details", new { id = item.CustomerUsre }, new { @class = "btn btn-success" })
+            @Html.ActionLink("ลบ", "Delete", new { id = item.CustomerUsre },
+             new { onclick = "return confirm('คุณต้องการลบจิงป่าว ?')", @class = "btn btn-danger" } )
+</tr>
+}
+
+</table>

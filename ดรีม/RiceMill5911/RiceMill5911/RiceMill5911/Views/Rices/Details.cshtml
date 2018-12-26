@@ -1,0 +1,80 @@
+﻿@model RiceMill5911.Models.Rice
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>รายละเอียดข้าว</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RiceID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RiceID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RiceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RiceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchasePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchasePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WareHouse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WareHouse)
+        </dd>
+
+       
+
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeRice.TypeRiceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeRice.TypeRiceName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RicePicture)
+        </dt>
+
+        <dd>
+            @if (Model.RicePicture != null)
+            {
+                <img src="data:image/png;base64,@Convert.ToBase64String(Model.RicePicture)" width="100">
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("กลับ", "Index", null, new { @class = "btn btn-warning" })
+</p>

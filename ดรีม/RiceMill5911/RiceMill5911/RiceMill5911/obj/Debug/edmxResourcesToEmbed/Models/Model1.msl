@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RiceMill5911ModelStoreContainer" CdmEntityContainer="RiceMill5911Entities">
+    <EntitySetMapping Name="BookingDescription">
+      <EntityTypeMapping TypeName="RiceMill5911Model.BookingDescription">
+        <MappingFragment StoreEntitySet="BookingDescription">
+          <ScalarProperty Name="DesBookingID" ColumnName="DesBookingID" />
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="BookRice" ColumnName="BookRice" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RiceQuantity" ColumnName="RiceQuantity" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="DesPrice" ColumnName="DesPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookingForm">
+      <EntityTypeMapping TypeName="RiceMill5911Model.BookingForm">
+        <MappingFragment StoreEntitySet="BookingForm">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+          <ScalarProperty Name="BookingWant" ColumnName="BookingWant" />
+          <ScalarProperty Name="BookingSubmit" ColumnName="BookingSubmit" />
+          <ScalarProperty Name="BookingDeliveryFee" ColumnName="BookingDeliveryFee" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="CustomerUsre" ColumnName="CustomerUsre" />
+          <ScalarProperty Name="StatusBookingID" ColumnName="StatusBookingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuyDescription">
+      <EntityTypeMapping TypeName="RiceMill5911Model.BuyDescription">
+        <MappingFragment StoreEntitySet="BuyDescription">
+          <ScalarProperty Name="DesBuyID" ColumnName="DesBuyID" />
+          <ScalarProperty Name="BuyID" ColumnName="BuyID" />
+          <ScalarProperty Name="BuyRice" ColumnName="BuyRice" />
+          <ScalarProperty Name="BuyAmount" ColumnName="BuyAmount" />
+          <ScalarProperty Name="BuyPrice" ColumnName="BuyPrice" />
+          <ScalarProperty Name="BuyTotal" ColumnName="BuyTotal" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="StatusRiceID" ColumnName="StatusRiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuyForm">
+      <EntityTypeMapping TypeName="RiceMill5911Model.BuyForm">
+        <MappingFragment StoreEntitySet="BuyForm">
+          <ScalarProperty Name="BuyID" ColumnName="BuyID" />
+          <ScalarProperty Name="DealerID" ColumnName="DealerID" />
+          <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Condition">
+      <EntityTypeMapping TypeName="RiceMill5911Model.Condition">
+        <MappingFragment StoreEntitySet="Condition">
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="ConditionName" ColumnName="ConditionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="RiceMill5911Model.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerUsre" ColumnName="CustomerUsre" />
+          <ScalarProperty Name="CustomerPass" ColumnName="CustomerPass" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustTelephone" ColumnName="CustTelephone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dealer">
+      <EntityTypeMapping TypeName="RiceMill5911Model.Dealer">
+        <MappingFragment StoreEntitySet="Dealer">
+          <ScalarProperty Name="DealerID" ColumnName="DealerID" />
+          <ScalarProperty Name="DealerName" ColumnName="DealerName" />
+          <ScalarProperty Name="DeTelephone1" ColumnName="DeTelephone1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="RiceMill5911Model.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeTelephone" ColumnName="EmployeeTelephone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rice">
+      <EntityTypeMapping TypeName="RiceMill5911Model.Rice">
+        <MappingFragment StoreEntitySet="Rice">
+          <ScalarProperty Name="RiceID" ColumnName="RiceID" />
+          <ScalarProperty Name="RiceName" ColumnName="RiceName" />
+          <ScalarProperty Name="TypeRiceID" ColumnName="TypeRiceID" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="WareHouse" ColumnName="WareHouse" />
+          <ScalarProperty Name="RicePicture" ColumnName="RicePicture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusBooking">
+      <EntityTypeMapping TypeName="RiceMill5911Model.StatusBooking">
+        <MappingFragment StoreEntitySet="StatusBooking">
+          <ScalarProperty Name="StatusBookingID" ColumnName="StatusBookingID" />
+          <ScalarProperty Name="StatusBookingName" ColumnName="StatusBookingName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusRice">
+      <EntityTypeMapping TypeName="RiceMill5911Model.StatusRice">
+        <MappingFragment StoreEntitySet="StatusRice">
+          <ScalarProperty Name="StatusRiceID" ColumnName="StatusRiceID" />
+          <ScalarProperty Name="StatusRiceName" ColumnName="StatusRiceName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeRice">
+      <EntityTypeMapping TypeName="RiceMill5911Model.TypeRice">
+        <MappingFragment StoreEntitySet="TypeRice">
+          <ScalarProperty Name="TypeRiceID" ColumnName="TypeRiceID" />
+          <ScalarProperty Name="TypeRiceName" ColumnName="TypeRiceName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogin">
+      <EntityTypeMapping TypeName="RiceMill5911Model.UserLogin">
+        <MappingFragment StoreEntitySet="UserLogin">
+          <ScalarProperty Name="UsernameID" ColumnName="UsernameID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

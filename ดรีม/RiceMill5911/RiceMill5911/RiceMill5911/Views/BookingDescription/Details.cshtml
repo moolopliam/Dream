@@ -1,0 +1,91 @@
+﻿@model RiceMill5911.Models.BookingDescription
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>รายละเอียด</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DesBookingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesBookingID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rice.RiceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rice.RiceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RiceQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RiceQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DesPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   
+    @Html.ActionLink("กลับ", "Index", null, new { @class = "btn btn-warning" })
+</p>

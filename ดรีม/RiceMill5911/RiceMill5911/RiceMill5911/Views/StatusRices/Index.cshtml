@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RiceMill5911.Models.StatusRice>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("เพิ่ม", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusRiceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusRiceName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusRiceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusRiceName)
+        </td>
+        <td>
+            @Html.ActionLink("แก้ไข", "Edit", new { id = item.StatusRiceID }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("รายละเอียด", "Details", new { id = item.StatusRiceID }, new { @class = "btn btn-success" })
+            @Html.ActionLink("ลบ", "Delete", new { id = item.StatusRiceID },
+            new { onclick = "return confirm('คุณต้องการลบ')", @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

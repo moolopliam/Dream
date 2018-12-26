@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RiceMill5911.Models.Condition>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>สภาพข้าว</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มข้อมูล", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ConditionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConditionName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConditionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConditionName)
+        </td>
+        <td>
+            @Html.ActionLink("แก้ไข", "Edit", new { id = item.ConditionID }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("รายละเอียด", "Details", new { id = item.ConditionID }, new { @class = "btn btn-success" })
+            @Html.ActionLink("ลบ", "Delete", new { id = item.ConditionID },
+            new { onclick = "return confirm('คุณต้องการลบ')", @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

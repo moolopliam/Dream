@@ -1,0 +1,71 @@
+﻿@model IEnumerable<RiceMill5911.Models.Rice>
+
+@{
+    ViewBag.Title = "ข้อมูลข้าว";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ข้อมูลข้าว</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มข้อมูลข้าว", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.RiceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeRice.TypeRiceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchasePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WareHouse)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.RicePicture)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.RiceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeRice.TypeRiceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchasePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WareHouse)
+        </td>
+        <td>
+            @if (item.RicePicture != null)
+            {
+                <img src="data:image/png;base64,@Convert.ToBase64String(item.RicePicture)" width="100">
+            }
+        </td>
+        <td>
+            @Html.ActionLink("แก้ไข", "Edit", new { id = item.RiceID },new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("รายละเอียด", "Details", new { id = item.RiceID },new { @class = "btn btn-success" }) 
+            @Html.ActionLink("ลบ", "Delete", new { id = item.RiceID },
+             new { onclick = "return confirm('คุณต้องการลบจิงป่าว ?')", @class = "btn btn-danger" } )
+        </td>
+    </tr>
+}
+
+</table>

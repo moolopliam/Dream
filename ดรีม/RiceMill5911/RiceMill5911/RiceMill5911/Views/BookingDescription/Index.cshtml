@@ -1,0 +1,83 @@
+﻿@model IEnumerable<RiceMill5911.Models.BookingDescription>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>รายละเอียดการจอง</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มรายละเอียดการจอง", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DesBookingID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rice.RiceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RiceQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesBookingID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rice.RiceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RiceQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesPrice)
+        </td>
+        <td>
+            @Html.ActionLink("แก้ไข", "Edit", new { id = item.DesBookingID }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("รายละเอียด", "Details", new { id = item.DesBookingID }, new { @class = "btn btn-success" })
+            @Html.ActionLink("ลบ", "Delete", new { id = item.DesBookingID },
+             new { onclick = "return confirm('คุณต้องการลบจิงป่าว ?')", @class = "btn btn-danger" } )
+        </td>
+    </tr>
+}
+
+</table>

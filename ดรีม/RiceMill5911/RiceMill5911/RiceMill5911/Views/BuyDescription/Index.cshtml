@@ -1,0 +1,79 @@
+﻿@model IEnumerable<RiceMill5911.Models.BuyDescription>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>รายละเอียดรับซื้อข้าว</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มรายละเอียดรับซื้อข้าว", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DesBuyID)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.BuyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rice.RiceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuyAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuyPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuyTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Condition.ConditionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusRice.StatusRiceName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.DesBuyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rice.RiceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Condition.ConditionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusRice.StatusRiceName)
+        </td>
+        <td>
+            @Html.ActionLink("แก้ไข", "Edit", new { id = item.DesBuyID }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("รายละเอียด", "Details", new { id = item.DesBuyID }, new { @class = "btn btn-success" })
+            @Html.ActionLink("ลบ", "Delete", new { id = item.DesBuyID },
+            new { onclick = "return confirm('คุณต้องการลบ')", @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

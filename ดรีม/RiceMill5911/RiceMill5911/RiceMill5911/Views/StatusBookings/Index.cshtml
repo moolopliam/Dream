@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RiceMill5911.Models.StatusBooking>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusBookingID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusBookingName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusBookingID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusBookingName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.StatusBookingID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.StatusBookingID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.StatusBookingID })
+        </td>
+    </tr>
+}
+
+</table>

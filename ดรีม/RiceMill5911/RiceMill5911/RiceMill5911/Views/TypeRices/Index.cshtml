@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RiceMill5911.Models.TypeRice>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ประเภทข้าว</h2>
+
+<p>
+    @Html.ActionLink("เพิ่ม", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeRiceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeRiceName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeRiceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeRiceName)
+        </td>
+        <td>
+            @Html.ActionLink("แก้ไข", "Edit", new { id = item.TypeRiceID }, new { @class = "btn btn-primary" })
+           
+            @Html.ActionLink("ลบ", "Delete", new { id = item.TypeRiceID },
+            new { onclick = "return confirm('คุณต้องการลบ')", @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,83 @@
+﻿@model RiceMill5911.Models.BuyDescription
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>รายละเอียดการรับซื้อ</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DesBuyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesBuyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rice.RiceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rice.RiceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Condition.ConditionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Condition.ConditionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusRice.StatusRiceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusRice.StatusRiceName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("กลับ", "Index", null, new { @class = "btn btn-warning" })
+</p>

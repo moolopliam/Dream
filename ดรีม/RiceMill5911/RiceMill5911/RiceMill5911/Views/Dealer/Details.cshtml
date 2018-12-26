@@ -1,0 +1,42 @@
+﻿@model RiceMill5911.Models.Dealer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Dealer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DealerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DealerID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DealerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DealerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeTelephone1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeTelephone1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DealerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

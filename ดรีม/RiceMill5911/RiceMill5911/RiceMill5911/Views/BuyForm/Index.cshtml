@@ -1,0 +1,51 @@
+﻿@model IEnumerable<RiceMill5911.Models.BuyForm>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ใบรับซื้อข้าว</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มใบรับซื้อข้าว", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BuyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dealer.DealerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuyDate)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dealer.DealerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyDate)
+        </td>
+
+        <td>
+            @Html.ActionLink("เพิ่มรายการซื้อ", "buyRicdetai", new { BuyID = item.BuyID }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("แก้ไข", "Edit", new { id = item.BuyID }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("รายละเอียด", "Details", new { id = item.BuyID }, new { @class = "btn btn-success" })
+            @Html.ActionLink("ลบ", "Delete", new { id = item.BuyID },
+            new { onclick = "return confirm('คุณต้องการลบ')", @class = "btn btn-danger" })
+
+        </td>
+    </tr>
+}
+
+</table>

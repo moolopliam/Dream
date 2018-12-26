@@ -1,0 +1,99 @@
+﻿@model RiceMill5911.Models.BookingForm
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>รายละเอียดใบจอง</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingWant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingWant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingSubmit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingSubmit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDeliveryFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingDeliveryFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerUsre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerUsre)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.StatusBookingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusBookingID)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("กลับ", "Index", null, new { @class = "btn btn-warning" })
+</p>

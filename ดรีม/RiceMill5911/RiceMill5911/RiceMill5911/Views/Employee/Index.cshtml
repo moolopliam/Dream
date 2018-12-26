@@ -1,0 +1,49 @@
+﻿@model IEnumerable<RiceMill5911.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>รายชื่อพนักงาน</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มข้อมูลพนักงาน", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeTelephone)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeTelephone)
+        </td>
+
+        <td>
+        <td>
+            @Html.ActionLink("แก้ไข", "Edit", new { id = item.EmployeeID}, new { @class = "btn btn-primary" })
+            @Html.ActionLink("รายละเอียด", "Details", new { id = item.EmployeeID }, new { @class = "btn btn-success" })
+            @Html.ActionLink("ลบ", "Delete", new { id = item.EmployeeID },
+            new { onclick = "return confirm('คุณต้องการลบ')", @class = "btn btn-danger" })
+        </td>
+        </td>
+    </tr>
+}
+
+</table>
